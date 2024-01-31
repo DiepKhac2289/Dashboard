@@ -1,0 +1,187 @@
+/* Info 
+Font:
+font-family: 'Open Sans', sans-serif;
+
+Color: 
+    Red: #ea4435
+    Yellow: #f9bc15
+    Blue: #3f70b7  => button + text white
+    Green: 34a851
+*/
+/* --------------------------------------------------------------------------------------- */
+
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+:root{
+    --font: 'Open Sans', sans-serif;
+    --Red: #ea4435;
+    --Yellow: #f9bc15;
+    --Blue: #266cd6 ; /* => button + text white */
+    --Green: #34a851;
+    --light: #F9F9F9;
+	--dark: #FBFBFB;
+    --grey: #f1f3f5;
+    --black: #212529;
+    --white: #fefefe;
+
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+body.dark {
+	--light: #0C0C1E;
+	--grey: #060714;
+	--dark: #FBFBFB;
+}
+
+body{
+    background: var(--grey);
+    overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+/* SIDEBAR */
+
+#side-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--white);
+    z-index: 1;
+    font-family: var(--font);
+    
+}
+
+#side-bar .brand{
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    height: 56px;
+    padding-bottom: 20px;
+    box-sizing: content-box; /*Kích thước element sẽ chỉ tính toán dựa trên nội dung bên trong (ko bao gồm border & padding). */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: var(--black);
+    
+}
+
+/* =====SIDE MENU TOP */
+#side-bar .side-menu{
+    width: 100%;
+    margin-top: 48px;
+}
+
+#side-bar .side-menu li{
+    height: 48px;
+    background: transparent;  /*đặt màu nền của phần tử thành màu trong suốt */
+    margin-left: 10px;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+    /* background: var(--grey); */
+
+}
+
+#side-bar .side-menu li.active{
+    background: var(--grey);
+    position: relative;
+}
+
+#side-bar .side-menu li.active::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white); 
+    border-radius: 50%;
+    top: -40px;
+    right: 0px;
+    box-shadow: 20px 20px 0 var(--grey);
+    z-index: -1;
+}
+
+#side-bar .side-menu li.active::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white); 
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0px;
+    box-shadow: 20px -20px 0 var(--grey);
+    z-index: -1;
+}
+
+#side-bar .side-menu li a{
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--black);
+}
+
+#side-bar .side-menu li a:hover{
+    color: var(--Blue);
+
+}
+
+#side-bar .side-menu li a .bx{
+    min-width: calc(60px - (20px));
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
+
+
+
+/* =====SIDE MENU TOP */
+
+
+
+/* SIDEBAR */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
