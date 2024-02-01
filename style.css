@@ -207,22 +207,27 @@ body{
     display: flex;
     align-items: center;
     gap: 20px;
-    font-family: var(--font);  
+    font-family: var(--font); 
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
 }
-
-#content nav::before{  /*2 quy tắc giống nhau đều cùng ::before thì quy tắc sau cùng sẽ ghi đè lên quy tắc trước đó*/
+/*2 quy tắc giống nhau đều cùng ::before thì quy tắc sau cùng sẽ ghi đè lên quy tắc trước đó*/
+#content nav::before{  
     content: '';
     position: absolute;
+    background: var();
     width: 30px;
     height: 30px;
     bottom: -30px;
     left: 0px;
-    background: var(--grey);
     border-radius: 50%;
+    box-shadow: -15px -15px 0 var(--white);
     
 }
 
-#content nav::after{
+/* #content nav::after{
     content: '';
     position: absolute;
     width: 40px;
@@ -232,7 +237,7 @@ body{
     background: var(--white);
     border-radius: 50%;
     z-index: -1;
-}
+} */
 
 
 #content nav .bx.bx-menu-alt-left{
@@ -343,9 +348,81 @@ body{
 }
 /* NAV BAR */
 
-/* CONTENT IN DASBOARD */
+/* MAIN */
+#content main{
+    margin: 40px 20px 0 20px;
+    font-family: var(--font);
+    color: var(--black);  
+    max-height: calc(100vh - 56px);
+	overflow-y: auto;
+}
+#content main .head-title{
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+}
+#content main .head-title .left ul{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    
+}
+#content main .head-title .left ul a{
+    font-family: var(--font);
+    color: var(--black);
+}
+#content main .head-title a.btn-download{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 170px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 15px 0 15px;
+    border-radius: 20px;
+    color: var(--white);
+    background: var(--Red);
+    cursor: pointer;
+}
+#content main ul.box-info{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 20px 40px 20px;
+    gap: 20px;
+}
+#content main ul.box-info li{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+    width: 320px;
+    height: 100px;
+    background: var(--white);
+    border-radius: 10px;
+}
+#content main ul.box-info li span.text{
+    color: var(--black);
+    font-family: var(--font);
+}
+#content main ul.box-info li i{
+    scale: 1.5;
+    z-index: 1;
+    color:#060714;   
+}
+#content main ul.box-info li i::before{
+    background: var(--Yellow);
+    padding: 15px;
+    border-radius: 10px;
+    opacity: 0.7;
+    padding: 15px;
+    z-index: -500;
+}
 
 
+
+/* MAIN */
 
 
 
