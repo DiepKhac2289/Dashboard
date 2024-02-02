@@ -29,8 +29,11 @@ li{
     --font: 'Open Sans', sans-serif;
     --Red: #ea4435;
     --Yellow: #f9bc15;
+    --Fade-yellow: #ffec99;
     --Blue: #266cd6 ; /* => button + text white */
+    --Fade-blue: #74c0fc;
     --Green: #34a851;
+    --Fade-green: #8ce99a;
     --light: #F9F9F9;
 	--dark: #FBFBFB;
     --grey: #f1f3f5;
@@ -386,42 +389,155 @@ body{
     background: var(--Red);
     cursor: pointer;
 }
-#content main ul.box-info{
-    display: flex;
-    justify-content: space-between;
-    margin: 40px 20px 40px 20px;
-    gap: 20px;
+
+#content main .box-info{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
 }
-#content main ul.box-info li{
+#content main .box-info li{
     display: flex;
     align-items: center;
-    padding: 20px;
-    gap: 30px;
-    width: 320px;
-    height: 100px;
+    padding: 24px;
     background: var(--white);
-    border-radius: 10px;
+    gap: 24px;
+    border-radius: 14px;
+
 }
-#content main ul.box-info li span.text{
-    color: var(--black);
-    font-family: var(--font);
+#content main .box-info li .bx{
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
-#content main ul.box-info li i{
-    scale: 1.5;
-    z-index: 1;
-    color:#060714;   
+#content main .box-info li:nth-child(1) .bx{ /* tạo lớp giả*/
+    background: var(--Fade-yellow);
+    color: var(--Yellow);
+    border-radius: 16px;
 }
-#content main ul.box-info li i::before{
+#content main .box-info li:nth-child(2) .bx{ /* tạo lớp giả*/
+    background: var(--Fade-blue);
+    color: var(--Blue);
+    border-radius: 16px;
+}
+#content main .box-info li:nth-child(3) .bx{ /* tạo lớp giả*/
+    background: var(--Fade-green);
+    color: var(--Green);
+    border-radius: 16px;
+}
+
+/* TABLE DATA */
+#content main .table-data{
+    display: flex;
+    gap: 20px;
+    margin-top: 24px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#content main .table-data >div{
+    background: var(--white);
+    border-radius: 20px;
+    overflow-x: auto; /*Xuất slide-bar nếu chiều rộng-dài thay đổi*/ 
+}
+#content main .table-data .head{
+    display: flex;
+    align-items: center;
+    margin: 10px 20px 24px 10px;
+    grid-gap: 16px;
+}
+#content main .table-data .head h3{
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+}
+#content main .table-data .head i.bx{
+    cursor: pointer;
+}
+#content main .table-data .order{
+    flex-grow: 1;
+    flex-basis: 500px;
+    /*
+    flex-grow: 1; là thuộc tính ưu tiên về chiều rộng của phần từ 
+    flex-basis: 500px; kích thước cơ bản mặc định của phần tử*/
+}
+#content main .table-data .todo{
+    flex-grow: 1;
+    flex-basis: 200px;
+    /*
+    flex-grow: 1; là thuộc tính ưu tiên về chiều rộng của phần từ 
+    flex-basis: 500px; kích thước cơ bản mặc định của phần tử*/
+}
+#content main .table-data .order table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#content main .table-data .order table th{
+    padding-bottom: 12px;
+    font-size: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+}
+#content main .table-data .order table td{
+    padding: 8px;
+}
+#content main .table-data .order table img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: 600;
+    object-fit: cover;   
+}
+#content main .table-data .order table tbody tr{
+    margin: 0 10px 0 10px;
+}
+#content main .table-data .order table tbody tr:hover{
+    background: var(--grey);
+}
+#content main .table-data .order table tbody td.user-order{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+#content main .table-data .order table tbody td .status{
+    font-size: 10px;
+    color: var(--white);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+#content main .table-data .order table tbody td .status.completed{
+    background: var(--Green);
+}
+#content main .table-data .order table tbody td .status.Pending{
+    background: var(--Red);
+}
+#content main .table-data .order table tbody td .status.Confirming{
     background: var(--Yellow);
-    padding: 15px;
-    border-radius: 10px;
-    opacity: 0.7;
-    padding: 15px;
-    z-index: -500;
+}
+#content main .table-data .todo{
+    flex-grow: 1;
+    flex-basis: 300px;
+}
+#content main .table-data .todo .todo-list{
+    width: 100%;
+}
+#content main .table-data .todo .todo-list li{
+    display: flex;
+    margin-bottom: 16px;
+    padding: 14px 20px;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--);
 }
 
-
-
+/* TABLE DATA */
 /* MAIN */
 
 
