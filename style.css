@@ -29,8 +29,11 @@ li{
     --font: 'Open Sans', sans-serif;
     --Red: #ea4435;
     --Yellow: #f9bc15;
+    --Fade-yellow: #ffec99;
     --Blue: #266cd6 ; /* => button + text white */
+    --Fade-blue: #74c0fc;
     --Green: #34a851;
+    --Fade-green: #8ce99a;
     --light: #F9F9F9;
 	--dark: #FBFBFB;
     --grey: #f1f3f5;
@@ -65,23 +68,38 @@ body{
     background: var(--white);
     z-index: 1;
     font-family: var(--font);
+    overflow-x: hidden;
+    transition: 100 ease;
     
 }
+/* Script effect */
+#sidebar.hide{
+    width: 56px;
+}
+
+/* Script effect */
 
 #sidebar .brand{
     font-size: 24px;
     font-weight: 700;
-    display: flex;
     height: 56px;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    position: sticky;
+    left: 0;
+    top: 0;
     padding-bottom: 20px;
     box-sizing: content-box; /*Kích thước element sẽ chỉ tính toán dựa trên nội dung bên trong (ko bao gồm border & padding). */
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    color: var(--black);
     
+ 
 }
-
+#sidebar .brand .bx{
+    min-width: 70px;
+    display: flex;
+    justify-content: center;
+    color: var(--Green);
+}
 /* =====SIDE MENU TOP */
 #sidebar .side-menu{
     width: 100%;
@@ -109,8 +127,11 @@ body{
     color: var(--black);
 }
 
+#sidebar .side-menu li a span{
+    margin-left: 5px;
+}
 #sidebar .side-menu.top li a:hover{
-    color: var(--Blue);
+    color: var(--Green);
 
 }
 
@@ -118,7 +139,6 @@ body{
     min-width: calc(60px - (20px));
     display: flex;
     justify-content: center;
-    
 }
 
 
@@ -160,22 +180,365 @@ body{
 #sidebar .side-menu li a.log-out{
     color: var(--Red);
 }
-
-
-
-
-
-
-
-
 /* =====SIDE MENU TOP */
 
-
-
 /* SIDEBAR */
+/* ============================================================== */
+
+/* CONTENT IN DASBOARD */
+/* NAV BAR */
+#content{
+    width: calc(100% - 280px);
+    position: relative;
+    left: 280px;
+    
+}
+
+#sidebar.hide ~ #content{
+    width: calc(100% - 56px);
+    left: 56px;
+}
+
+#content nav a{
+    color: var(--black);
+}
+
+#content nav{
+    height: 56px;
+    background: var(--white);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font); 
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+/*2 quy tắc giống nhau đều cùng ::before thì quy tắc sau cùng sẽ ghi đè lên quy tắc trước đó*/
+#content nav::before{  
+    content: '';
+    position: absolute;
+    background: var();
+    width: 30px;
+    height: 30px;
+    bottom: -30px;
+    left: 0px;
+    border-radius: 50%;
+    box-shadow: -15px -15px 0 var(--white);
+    
+}
+
+/* #content nav::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -20px;
+    left: -30px;
+    background: var(--white);
+    border-radius: 50%;
+    z-index: -1;
+} */
+
+
+#content nav .bx.bx-menu-alt-left{
+    cursor: pointer;
+    scale: 1.5;
+    
+}
+
+#content nav form {
+    max-width: 400px;
+    width: 100%;
+}
+
+#content nav form .form-input{
+    display: flex;
+    align-items: center;
+    height: 36px;
+}
+
+#content nav form .form-input input{
+    flex-grow: 1;
+    height: 100%;
+    background: var(--grey);
+    border: none;
+    padding: 0 16px 0 16px;
+    border-radius: 36px 0 0 36px;
+    outline: none;
+    
+}
 
 
 
+#content nav form .form-input button{
+    width: 32px;
+    height: 100%;
+    border: none;
+    border-radius: 0 16.25px 16.25px 0 ;  /*top-left, top-right, bottom-right, bottom-left.  */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    background: var(--Green);
+    font-size: 18px;
+
+    color: var(--white);
+    cursor: pointer;
+}
+
+#content nav a.notification{
+    position: relative;
+    font-size: 20px;
+}
+
+#content nav a.notification .num{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    top: -8px;
+    right: -8px;
+    color: var(--white);
+    background: var(--Red);
+}
+
+@media screen and (max-width: 870px){
+    #content{
+        width: calc(100% - 56px);
+        left: 200px;
+    }
+}
+
+@media screen and (max-width: 523px){
+    #content nav a.nav-link{
+        display: none;
+    }
+    #content nav form .form-input input{
+        display: none;
+    }
+    #content nav form .form-input button{
+        background: none;
+        color: var(--black);
+        cursor: pointer;
+    }
+    #content nav form.show input{
+        display: block;
+    }
+    #content nav form.show .form-input button{
+        width: 32px;
+        height: 100%;
+        border: none;
+        border-radius: 0 16.25px 16.25px 0 ;  /*top-left, top-right, bottom-right, bottom-left.  */
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        right: 0px;
+        background: var(--Red);
+        font-size: 18px;
+    
+        color: var(--white);
+        cursor: pointer;
+    }
+}
+/* NAV BAR */
+
+/* MAIN */
+#content main{
+    margin: 40px 20px 0 20px;
+    font-family: var(--font);
+    color: var(--black);  
+    max-height: calc(100vh - 56px);
+	overflow-y: auto;
+}
+#content main .head-title{
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+}
+#content main .head-title .left ul{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    
+}
+#content main .head-title .left ul a{
+    font-family: var(--font);
+    color: var(--black);
+}
+#content main .head-title a.btn-download{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 170px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 15px 0 15px;
+    border-radius: 20px;
+    color: var(--white);
+    background: var(--Red);
+    cursor: pointer;
+}
+
+#content main .box-info{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
+}
+#content main .box-info li{
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    background: var(--white);
+    gap: 24px;
+    border-radius: 14px;
+
+}
+#content main .box-info li .bx{
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#content main .box-info li:nth-child(1) .bx{ /* tạo lớp giả*/
+    background: var(--Fade-yellow);
+    color: var(--Yellow);
+    border-radius: 16px;
+}
+#content main .box-info li:nth-child(2) .bx{ /* tạo lớp giả*/
+    background: var(--Fade-blue);
+    color: var(--Blue);
+    border-radius: 16px;
+}
+#content main .box-info li:nth-child(3) .bx{ /* tạo lớp giả*/
+    background: var(--Fade-green);
+    color: var(--Green);
+    border-radius: 16px;
+}
+
+/* TABLE DATA */
+#content main .table-data{
+    display: flex;
+    gap: 20px;
+    margin-top: 24px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#content main .table-data >div{
+    background: var(--white);
+    border-radius: 20px;
+    overflow-x: auto; /*Xuất slide-bar nếu chiều rộng-dài thay đổi*/ 
+}
+#content main .table-data .head{
+    display: flex;
+    align-items: center;
+    margin: 10px 20px 24px 10px;
+    grid-gap: 16px;
+}
+#content main .table-data .head h3{
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+}
+#content main .table-data .head i.bx{
+    cursor: pointer;
+}
+#content main .table-data .order{
+    flex-grow: 1;
+    flex-basis: 500px;
+    /*
+    flex-grow: 1; là thuộc tính ưu tiên về chiều rộng của phần từ 
+    flex-basis: 500px; kích thước cơ bản mặc định của phần tử*/
+}
+#content main .table-data .todo{
+    flex-grow: 1;
+    flex-basis: 200px;
+    /*
+    flex-grow: 1; là thuộc tính ưu tiên về chiều rộng của phần từ 
+    flex-basis: 500px; kích thước cơ bản mặc định của phần tử*/
+}
+#content main .table-data .order table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#content main .table-data .order table th{
+    padding-bottom: 12px;
+    font-size: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+}
+#content main .table-data .order table td{
+    padding: 8px;
+}
+#content main .table-data .order table img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: 600;
+    object-fit: cover;   
+}
+#content main .table-data .order table tbody tr{
+    margin: 0 10px 0 10px;
+}
+#content main .table-data .order table tbody tr:hover{
+    background: var(--grey);
+}
+#content main .table-data .order table tbody td.user-order{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+#content main .table-data .order table tbody td .status{
+    font-size: 10px;
+    color: var(--white);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+#content main .table-data .order table tbody td .status.completed{
+    background: var(--Green);
+}
+#content main .table-data .order table tbody td .status.Pending{
+    background: var(--Red);
+}
+#content main .table-data .order table tbody td .status.Confirming{
+    background: var(--Yellow);
+}
+#content main .table-data .todo{
+    flex-grow: 1;
+    flex-basis: 300px;
+}
+#content main .table-data .todo .todo-list{
+    width: 100%;
+}
+#content main .table-data .todo .todo-list li{
+    display: flex;
+    margin-bottom: 16px;
+    padding: 14px 20px;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--);
+}
+
+/* TABLE DATA */
+/* MAIN */
 
 
 
