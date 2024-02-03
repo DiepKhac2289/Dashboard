@@ -39,6 +39,7 @@ li{
     --grey: #f1f3f5;
     --black: #212529;
     --white: #fefefe;
+    --dark-grey: #ced4da;
 
 }
 
@@ -277,7 +278,7 @@ body{
     width: 32px;
     height: 100%;
     border: none;
-    border-radius: 0 16.25px 16.25px 0 ;  /*top-left, top-right, bottom-right, bottom-left.  */
+    border-radius: 0 16.25px 16.25px 0;  /*top-left, top-right, bottom-right, bottom-left.  */
     position: relative;
     justify-content: center;
     align-items: center;
@@ -446,8 +447,9 @@ body{
 #content main .table-data .head{
     display: flex;
     align-items: center;
-    margin: 10px 20px 24px 10px;
+    margin: 10px 20px 24px 20px;
     grid-gap: 16px;
+    font-size: 18px;
 }
 #content main .table-data .head h3{
     margin-right: auto;
@@ -456,46 +458,54 @@ body{
 }
 #content main .table-data .head i.bx{
     cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.3 ease;
+}
+#content main .table-data .head i.bx:hover{
+    background: var(--grey);
+    scale: 1.05;
 }
 #content main .table-data .order{
     flex-grow: 1;
     flex-basis: 500px;
-    /*
+    padding: 10px;
+    
+}
+/*
     flex-grow: 1; là thuộc tính ưu tiên về chiều rộng của phần từ 
     flex-basis: 500px; kích thước cơ bản mặc định của phần tử*/
-}
-#content main .table-data .todo{
-    flex-grow: 1;
-    flex-basis: 200px;
-    /*
-    flex-grow: 1; là thuộc tính ưu tiên về chiều rộng của phần từ 
-    flex-basis: 500px; kích thước cơ bản mặc định của phần tử*/
-}
+
 #content main .table-data .order table{
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /*các ô gộp lại, không khoảng trống, không đường viền*/
 }
+
 #content main .table-data .order table th{
     padding-bottom: 12px;
+    padding-left: 20px;
     font-size: 12px;
     text-align: left;
-    border-bottom: 1px solid var(--grey);
+    border-bottom: 1px solid var(--dark-grey);
 }
 #content main .table-data .order table td{
     padding: 8px;
 }
-#content main .table-data .order table img{
+#content main .table-data .order table tr td:first-child{
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding-left: 6px;
+}
+#content main .table-data .order table td img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    font-weight: 600;
-    object-fit: cover;   
-}
-#content main .table-data .order table tbody tr{
-    margin: 0 10px 0 10px;
+    object-fit: cover;
 }
 #content main .table-data .order table tbody tr:hover{
     background: var(--grey);
+    
 }
 #content main .table-data .order table tbody td.user-order{
     display: flex;
@@ -525,23 +535,66 @@ body{
     flex-grow: 1;
     flex-basis: 300px;
 }
+
 #content main .table-data .todo .todo-list{
     width: 100%;
+    margin-bottom: 24px;
 }
 #content main .table-data .todo .todo-list li{
     display: flex;
-    margin-bottom: 16px;
+    margin: 0 10px 8px 10px;
     padding: 14px 20px;
+    border-radius: 10px;
     justify-content: space-between;
     align-items: center;
-    background: var(--);
+}
+#content main .table-data .todo .todo-list li:hover{
+    background: var(--grey);
+}
+#content main .table-data .todo .todo-list li p{
+    margin-right: auto;
+}
+#content main .table-data .todo .todo-list li i{
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3 ease;
+}
+#content main .table-data .todo .todo-list li i:hover{
+    scale: 1.05;
+}
+#content main .table-data .todo div{
+    display: flex;
+    align-items: center;
+    margin: 10px 20px 24px 20px;
+    grid-gap: 16px;
+    justify-content: space-between;
+    font-size: 18px;
+
+}
+#content main .table-data .todo div h3{
+    margin-right: auto;
+}
+#content main .table-data .todo div i.bx{
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+#content main .table-data .todo div i.bx:hover{
+    background: var(--grey);
+    scale: 1.05;
 }
 
 /* TABLE DATA */
 /* MAIN */
 
 
-
+#dashboardContent {
+    width: 100%;
+    height: auto;
+    /* Add other styles as needed */
+  }
+  
 
 
 
