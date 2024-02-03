@@ -68,6 +68,21 @@ searchButton.addEventListener('click', function(e){
 
 // SCREEN SCALE
 
+document.getElementById('downloadBtn').addEventListener('click', function () {
+    downloadPDF();
+  });
+  
+function downloadPDF() {
+const element = document.getElementById('dashboardContent'); // Thay 'dashboardContent' bằng ID của container dashboard
+
+html2pdf(element, {
+    margin: 10,
+    filename: 'dashboard.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+});
+}
 
 
 
